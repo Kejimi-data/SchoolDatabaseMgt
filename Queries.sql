@@ -1,4 +1,4 @@
---Update student name to Tolulope--
+--Update student firstname to Tolulope--
 UPDATE Student
 SET FirstName = 'Tolulope'
 WHERE StudentCode = 'ATP';
