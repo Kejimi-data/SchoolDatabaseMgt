@@ -1,3 +1,4 @@
+--Creating the Student table --
 CREATE TABLE Student( 		 StudentId INT PRIMARY KEY IDENTITY(1,1)
 				 ,FirstName VARCHAR (50)
 				 ,MiddleName VARCHAR (50)
@@ -8,7 +9,8 @@ CREATE TABLE Student( 		 StudentId INT PRIMARY KEY IDENTITY(1,1)
 				 ,StudentCode VARCHAR(4)
 				 ,CONSTRAINT CK_Student_Name CHECK (FirstName IS NOT NULL AND LastName IS NOT NULL)
 				 )
-	
+
+--Creating the Enrollment table (This table stores students details obtained when they are enrolled into the school) --
 CREATE TABLE Enrollment(	 StudentId INT 
 				,EnrollmentId INT PRIMARY KEY IDENTITY(1,1) 
 				,EnrollmentDate DATE
@@ -17,15 +19,18 @@ CREATE TABLE Enrollment(	 StudentId INT
 				,CONSTRAINT FK_Student_Enrollment FOREIGN KEY (StudentId) REFERENCES Student(StudentId)
 				)
 
+--Creating the Subject table (This contains a list of subjects offered in the school with their unique IDs) --
 CREATE TABLE Subjects(		SubjectId INT PRIMARY KEY IDENTITY(1,1)
 				,ClassOffered VARCHAR (10)
 				,SubjectName VARCHAR (50)
 				)
-		
+
+--Creating the Class table (This contains the details of al classes in the school with their unique IDs) --
 CREATE TABLE Class(		ClassID INT PRIMARY KEY IDENTITY (1,1)
 				,ClassName VARCHAR (10)
 				)
-		
+
+--Creating the Grades table (This stores the grades of student per subjects in the school with the date the assesment was taken) --		
 CREATE TABLE GRADES(		GradeId INT PRIMARY KEY IDENTITY(1,1)
 				,SubjectId INT
 				,StudentId INT
@@ -37,7 +42,7 @@ CREATE TABLE GRADES(		GradeId INT PRIMARY KEY IDENTITY(1,1)
 			        CONSTRAINT FK_Grade_Class FOREIGN KEY (ClassId) REFERENCES Class(ClassId),
 		            	CONSTRAINT FK_Grade_Subjects FOREIGN KEY (SubjectId) REFERENCES Subjects (SubjectId)
 				)
-
+--POPULATING THE TABLES --- 
 INSERT INTO Student (FirstName,LastName,MiddleName,DateOfBirth,Gender,Address,StudentCode) 
 VALUES 	('Adedolu','Titilayo','Promise','12/12/2002','F','Surulere','ATP'),
 	('Oyemakinde','Ibukun','Emmanuel','12/02/2005','M','Surulere','OIE'),
@@ -51,6 +56,7 @@ VALUES 	('Adedolu','Titilayo','Promise','12/12/2002','F','Surulere','ATP'),
 	('Oyedapo', 'Adeola', 'Paul', '11/24/2006', 'M', 'Marina','OAP'),
 	('Ibitola', 'Emmanuel', 'Prince', '07/07/2005', 'M', 'Marina','NIR');
 
+--Deleting double entry in the student table--
 DELETE FROM Student
 WHERE StudentId = '5';
 
@@ -71,6 +77,7 @@ VALUES  ('JSS1'),
 	('JSS2'),
 	('JSS3');
 
+--Renaming column--
 sp_rename 'Subjects.ClassOffered', 'ClassName', 'COLUMN';
 
 INSERT INTO Subjects(ClassName,SubjectName)
