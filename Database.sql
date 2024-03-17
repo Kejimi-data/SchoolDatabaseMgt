@@ -1,4 +1,4 @@
-	CREATE TABLE Student(	 StudentId INT PRIMARY KEY IDENTITY(1,1)
+CREATE TABLE Student( 		 StudentId INT PRIMARY KEY IDENTITY(1,1)
 				 ,FirstName VARCHAR (50)
 				 ,MiddleName VARCHAR (50)
 				 ,LastName VARCHAR (50)
