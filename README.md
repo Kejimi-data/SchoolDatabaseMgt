@@ -29,5 +29,10 @@ To use the Secondary School Data Transformation Project, follow these instructio
 
 3. Use SQL queries to perform various data transformation tasks, such as updating student records, calculating grades, or generating reports.
 
+## ERD
+
+![image](https://github.com/Kejimi-data/SchoolDatabaseMgt/assets/132764633/4eaeb268-3ea3-4996-a1ed-30b174ae845b)
+
+
 
 
