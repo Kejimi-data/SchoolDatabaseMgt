@@ -10,6 +10,17 @@ CREATE TABLE Student( 		 StudentId INT PRIMARY KEY IDENTITY(1,1)
 				 ,CONSTRAINT CK_Student_Name CHECK (FirstName IS NOT NULL AND LastName IS NOT NULL)
 				 )
 
+--Creating the Exit table--
+CREATE TABLE ExitRecord (
+				ExitID INT PRIMARY KEY AUTO_INCREMENT,
+				StudentId INT,
+				ExitDate DATE,
+				ExitReason VARCHAR(255),
+				DestinationSchool VARCHAR(255),
+				CONSTRAINT FK_ExitRecord_Student FOREIGN KEY (StudentId) REFERENCES Student(StudentId)
+				)
+
+
 --Creating the Enrollment table (This table stores students details obtained when they are enrolled into the school) --
 CREATE TABLE Enrollment(	 StudentId INT 
 				,EnrollmentId INT PRIMARY KEY IDENTITY(1,1) 
@@ -140,4 +151,7 @@ VALUES    ('13','1','03/11/2024','78','A','1'),
 	  ('15','11','03/11/2024','80','A','1'), 
 	  ('16','11','03/11/2024','82','A','1'),
 	  ('17','11','03/11/2024','84','A','1');
+
+INSERT INTO ExitRecord(StudentID,ExitDate,ExitReason,DestinationSchool)
+VALUES('1','03/18/2024','Graduation','null')
 
