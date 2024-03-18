@@ -31,8 +31,5 @@ To use the Secondary School Data Transformation Project, follow these instructio
 
 ## ERD
 
-![image](https://github.com/Kejimi-data/SchoolDatabaseMgt/assets/132764633/4eaeb268-3ea3-4996-a1ed-30b174ae845b)
-
-
-
+![ERD](https://github.com/Kejimi-data/SchoolDatabaseMgt/assets/132764633/f23c9bc1-dea9-41a3-971e-566c88b24673)
 
